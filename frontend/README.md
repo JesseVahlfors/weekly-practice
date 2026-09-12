@@ -1,16 +1,21 @@
-# React + Vite
+# Weekly Practice
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React workspace for structured weekly software engineering practice.
 
-Currently, two official plugins are available:
+The project provides a ready-to-use environment for short focused exercises without needing to create a new project or configure tooling each time.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Weekly Focus
 
-## React Compiler
+- **Monday** — Fundamentals & Retrieval
+- **Tuesday** — Debugging
+- **Wednesday** — Project Reasoning
+- **Thursday** — Code Reading & Review
+- **Friday** — System Design
+- **Saturday** — Delivery Mode
+- **Sunday** — Review & Calibration
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The React workspace contains dedicated pages for exercises that benefit from running and testing code. Other sessions can use existing projects or discussion and review as appropriate.
 
-## Expanding the ESLint configuration
+## Purpose
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The goal is to develop broader software engineering skills alongside normal project work, while practising both independent problem-solving and effective AI-assisted development.
