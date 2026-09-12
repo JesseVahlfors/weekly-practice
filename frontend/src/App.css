@@ -1,184 +1,466 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+:root {
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+  color: #e5e7eb;
+
+  background:
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 30%),
+    linear-gradient(180deg, #0f172a 0%, #111827 100%);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
 }
 
-.hero {
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #0f172a;
+}
+
+#root {
+  min-height: 100vh;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+/* =========================
+   APP TITLE
+   ========================= */
+
+.app-title {
+  margin: 0 0 2rem;
+
+  text-align: center;
+
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+
+  color: #f8fafc;
+}
+
+.app-title::after {
+  content: "";
+
+  display: block;
+
+  width: 80px;
+  height: 5px;
+
+  margin: 0.8rem auto 0;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #60a5fa
+  );
+
+  box-shadow:
+    0 0 18px rgba(59, 130, 246, 0.45);
+}
+
+/* =========================
+   NAV
+   ========================= */
+
+nav {
+  width: min(1200px, 100%);
+
+  margin: 0 auto 2.5rem;
+  padding: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+
+  background: rgba(15, 23, 42, 0.72);
+
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 18px;
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+  backdrop-filter: blur(10px);
+}
+
+/* =========================
+   NAV BUTTONS
+   ========================= */
+
+nav button {
   position: relative;
+  overflow: hidden;
 
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
+  padding: 0.9rem 1.3rem;
 
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 11px;
 
-  .framework,
-  .vite {
-    position: absolute;
-  }
+  background:
+    linear-gradient(
+      180deg,
+      #263247 0%,
+      #1e293b 100%
+    );
 
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
+  color: #e2e8f0;
 
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+  font-weight: 650;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 14px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease,
+    background 0.15s ease;
 }
 
-#center {
+nav button:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(96, 165, 250, 0.45);
+
+  background:
+    linear-gradient(
+      180deg,
+      #334155 0%,
+      #243247 100%
+    );
+
+  box-shadow:
+    0 9px 20px rgba(0, 0, 0, 0.35);
+}
+
+nav button:active {
+  transform: translateY(0);
+}
+
+nav button.active {
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb 0%,
+      #3b82f6 55%,
+      #60a5fa 100%
+    );
+
+  color: white;
+
+  border-color: rgba(147, 197, 253, 0.65);
+
+  box-shadow:
+    0 8px 22px rgba(37, 99, 235, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+nav button.active:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 26px rgba(37, 99, 235, 0.45);
+}
+
+/* =========================
+   MAIN
+   ========================= */
+
+main {
+  width: min(1050px, 100%);
+  margin: 0 auto;
+}
+
+/* =========================
+   PRACTICE PAGE
+   ========================= */
+
+.practice-page {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
+  gap: 1.5rem;
 
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  animation: page-enter 0.2s ease;
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+.practice-page header {
+  text-align: center;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
+.practice-page header h1 {
+  margin: 0;
 
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 750;
+
+  color: #f1f5f9;
 }
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
+/* =========================
+   PRACTICE AREA
+   ========================= */
 
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
+.current-practice {
   position: relative;
+
+  min-height: 430px;
+
+  padding: 2rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(30, 41, 59, 0.96),
+      rgba(15, 23, 42, 0.96)
+    );
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 18px;
+
+  box-shadow:
+    0 22px 50px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.current-practice::before {
+  content: "Current Practice";
+
+  position: absolute;
+
+  top: -0.8rem;
+  left: 1.4rem;
+
+  padding: 0.3rem 0.75rem;
+
+  border-radius: 999px;
+
+  background: #172033;
+  color: #93c5fd;
+
+  border: 1px solid rgba(96, 165, 250, 0.25);
+
+  font-size: 0.73rem;
+  font-weight: 750;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* =========================
+   PRACTICE CARD
+   ========================= */
+
+.practice-card {
+  padding: 1.35rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(51, 65, 85, 0.65),
+      rgba(30, 41, 59, 0.7)
+    );
+
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 13px;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.practice-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+
+  color: #f8fafc;
+}
+
+.practice-card p {
+  margin: 0;
+
+  color: #cbd5e1;
+}
+
+/* =========================
+   TEXT
+   ========================= */
+
+.current-practice h2,
+.current-practice h3 {
+  color: #f8fafc;
+}
+
+.current-practice p,
+.current-practice li {
+  max-width: 72ch;
+
+  color: #cbd5e1;
+
+  line-height: 1.7;
+}
+
+/* =========================
+   CODE
+   ========================= */
+
+.current-practice code {
+  padding: 0.18rem 0.4rem;
+
+  border-radius: 6px;
+
+  background: #111827;
+  color: #93c5fd;
+
+  font-family:
+    "Cascadia Code",
+    "Fira Code",
+    Consolas,
+    monospace;
+}
+
+.current-practice pre {
+  overflow-x: auto;
+
+  padding: 1.3rem;
+
+  background: #020617;
+  color: #e2e8f0;
+
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 12px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.current-practice pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+
+/* =========================
+   FORM ELEMENTS
+   ========================= */
+
+.current-practice input,
+.current-practice textarea,
+.current-practice select {
   width: 100%;
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+  padding: 0.75rem 0.9rem;
+
+  border: 1px solid #334155;
+  border-radius: 9px;
+
+  background: #0f172a;
+  color: #e2e8f0;
+
+  outline: none;
+}
+
+.current-practice input:focus,
+.current-practice textarea:focus,
+.current-practice select:focus {
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* =========================
+   BUTTONS INSIDE EXERCISES
+   ========================= */
+
+.current-practice button {
+  padding: 0.7rem 1rem;
+
+  border: none;
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #3b82f6
+    );
+
+  color: white;
+
+  font-weight: 650;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 14px rgba(37, 99, 235, 0.3);
+}
+
+.current-practice button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 18px rgba(37, 99, 235, 0.38);
+}
+
+/* =========================
+   ANIMATION
+   ========================= */
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 760px) {
+  #root {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  nav button {
+    width: 100%;
+  }
+
+  .current-practice {
+    min-height: 350px;
+    padding: 1.4rem;
   }
 }
